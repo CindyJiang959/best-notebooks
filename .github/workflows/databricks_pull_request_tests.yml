@@ -1,0 +1,26 @@
+name: Run pre-merge Databricks tests
+
+on:
+  pull_request:
+
+env:
+  DATABRICKS_HOST: https://dbc-c92d96f2-d48c.cloud.databricks.com/
+  DATABRICKS_TOKEN: dapiee61b6d529be1dc87fe0a7fb0daa5d81
+
+jobs:
+  unit-test-notebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Deploy bundle
+        run: databricks bundle deploy
+
+      - name: Run test notebook
+        run: databricks bundle run run_unit_tests --refresh-all
