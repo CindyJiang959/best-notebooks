@@ -1,0 +1,16 @@
+bundle:
+  name: ci-tests
+
+targets:
+  default:
+    mode: development
+
+resources:
+  jobs:
+    run_unit_tests:
+      name: "Pre-merge unit tests"
+      tasks:
+        - task_key: run_tests
+          notebook_task:
+            notebook_path: ./notebooks/run_unit_tests.py
+          # No cluster config = serverless compute is auto-selected
