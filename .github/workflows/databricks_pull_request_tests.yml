@@ -5,7 +5,7 @@ on:
 
 env:
   DATABRICKS_HOST: https://dbc-c92d96f2-d48c.cloud.databricks.com/
-  DATABRICKS_TOKEN: dapiee61b6d529be1dc87fe0a7fb0daa5d81
+  DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
 jobs:
   unit-test-notebook:
