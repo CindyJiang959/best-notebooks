@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  DATABRICKS_HOST: https://dbc-c92d96f2-d48c.cloud.databricks.com/
+  DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
   DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
 jobs:
